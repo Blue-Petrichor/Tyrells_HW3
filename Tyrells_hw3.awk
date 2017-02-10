@@ -1,11 +1,16 @@
-#!bin/awk
+#!user/bin/awk -f
 
 # create an awk file using substrings to extract a givin field
-#		of specif years
+#		of specif years 1900 - present day
 
-BEGIN {FS = ","}
-{
-	print $4 " " $5
+BEGIN{
+	FS=","
 }
+	{	
+	if(substr($4,length($4)-3)+0>1900)
+	print $2 ",from" $4 "to" $5;
+	}
+END{
 
+	}
 
